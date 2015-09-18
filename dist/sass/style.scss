@@ -1,0 +1,23 @@
+/* Scss Document */
+
+$font-stack:    Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+$primary-color: #F2AF29;
+$font-color: #000;
+$countdown-font: 152px;
+
+body {
+  font: 100% $font-stack;
+  background-color: $primary-color;
+  color: $font-color;
+  padding-top: 100px;
+  text-align:center;
+  }
+  
+
+#getting-started { font-size: $countdown-font;}
+	 
+	  
+
+
+
+

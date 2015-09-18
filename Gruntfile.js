@@ -1,19 +1,22 @@
 module.exports = function(grunt) {
-  require('jit-grunt')(grunt);
+  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
     sass: {
-      development: {
-        options: {
-          compress: true,
-          yuicompress: true,
-          optimization: 2
-        },
+      dist: {
         files: {
-          "dist/css/style.css": "dist/sass/styles.scss" // destination file and source file
+          "dist/css/style.css": "dist/sass/style.scss" // destination file and source file
         }
-      }
+      }  
     },
+
+     uglify: {
+                build: {
+                    src: 'dist/js/countdown.js',
+                    dest: 'dist/js/countdown.min.js'
+                }
+        },
+
     watch: {
       styles: {
         files: ['dist/sass/*.scss'], // which files to watch
@@ -22,9 +25,12 @@ module.exports = function(grunt) {
           nospawn: true
         }
       }
+
     }
+
   });
 
-  grunt.registerTask('default', ['sass', 'watch']);
-  
-};
+  grunt.registerTask('default', ['sass', 'uglify', 'watch']);
+
+
+}
